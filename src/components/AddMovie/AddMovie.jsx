@@ -30,10 +30,8 @@ function AddMovie() {
             <input type='text'></input><br />
             <label>Movie Description </label>
             <input type='text'></input>
-            {/* <Dropdown options={ genreOptions }placeholder='Add Genre'>
-
-            </Dropdown> */}
             <div>
+                <pre>{JSON.stringify(selectedGenres)}</pre>
                 <MultiSelect
                 options={ genreOptions }
                 value={ selectedGenres }
