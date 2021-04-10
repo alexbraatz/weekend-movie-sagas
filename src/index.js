@@ -34,6 +34,7 @@ function* fetchAllGenres() {
     try {
         const genres = yield axios.get('/api/genre');
         console.log( 'in generator fetchAllGenres', genres.data);
+        yield put( { type: 'SET_GENRES', payload: genres.data } );
     }
     catch {
         console.log( 'fetch Genres GET error');
@@ -57,6 +58,7 @@ const movies = (state = [], action) => {
 const genres = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENRES':
+            console.log( 'in SET_GENRES action payload:', action.payload )
             return action.payload;
         default:
             return state;
