@@ -20,7 +20,7 @@ function MovieList() {
                     return (
                         <div key={movie.id} >
                             <h3>{movie.title}</h3>
-                            <Link to={ { pathname: '/details', description: movie } }>
+                            <Link to={ { pathname: '/details', movie: movie } }>
                                 <img src={movie.poster} alt={movie.title}/>
                             </Link>
                         </div>
