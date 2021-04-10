@@ -17,7 +17,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  console.log(req.body);
+  console.log(' in movie.router POST route:', req.body);
   // RETURNING "id" will give us back the id of the created movie
   const insertMovieQuery = `
   INSERT INTO "movies" ("title", "poster", "description")
@@ -46,7 +46,7 @@ router.post('/', (req, res) => {
         res.sendStatus(500)
       })
 
-// Catch for first query
+   // Catch for first query
   }).catch(err => {
     console.log(err);
     res.sendStatus(500)
