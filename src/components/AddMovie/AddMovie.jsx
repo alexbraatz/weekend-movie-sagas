@@ -1,5 +1,6 @@
 import MultiSelect from "react-multi-select-component";
 import React, { useState } from "react";
+import { Link } from 'react-router-dom';
 
 function AddMovie() {
 
@@ -38,7 +39,11 @@ function AddMovie() {
                 onChange={ setSelectedGenres } 
                 labelledBy="Add Movie Genres"
                 />
-            </div>
+            </div><br />
+            <button>Save Movie</button>
+            <Link to={'/'}>
+                <button>Cancel</button>
+            </Link>
 
         </>
     )

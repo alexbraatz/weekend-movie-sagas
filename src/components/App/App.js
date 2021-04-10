@@ -8,19 +8,12 @@ import AddMovie from '../AddMovie/AddMovie';
 
 function App() {
 
+
   return (
     <div className="App">
       <h1>The Movies Saga!</h1>
 
       <Router>
-
-        <Link to={'/addMovie'}>
-          <button>Add a New Movie</button>
-        </Link>
-
-        <Link to={'/'}>
-          <button>Home</button>
-        </Link>
 
         <Route path="/" exact>
           <MovieList />
