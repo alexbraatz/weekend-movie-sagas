@@ -7,7 +7,7 @@ TODO's
 
 # Home / List Page
 
-[ ] When a movie poster is clicked, a user should be brought to the /details view for that movie
+[ x ] When a movie poster is clicked, a user should be brought to the /details view for that movie
 
 [ ] Have a way to get to the 'Add Movie' page
 

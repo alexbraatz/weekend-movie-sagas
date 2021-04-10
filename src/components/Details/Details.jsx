@@ -14,4 +14,4 @@ function Details(props) {
     )
 }
 
-export default Details
+export default Details;
