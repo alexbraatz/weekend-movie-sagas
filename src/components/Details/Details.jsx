@@ -7,15 +7,31 @@ function Details(props) {
     
     let movieDescription = props.location.movie.description
     let movieTitle = props.location.movie.title
+    
 
     const dispatch = useDispatch();
     const genres = useSelector( store => store.genres );
 
     useEffect(()=>{
+        findGenres();
         dispatch({type: 'FETCH_GENRES' } );
     }, []);
 
-    console.log( 'in details, genres', genres );
+    const findGenres = () => {
+        
+        let movieGenres = []
+
+        genres.map( genre => {
+            if( genre.title == movieTitle ){
+                console.log( genre.genre )
+                movieGenres.push( genre.genre )
+            }
+        })
+
+        return movieGenres
+    }
+
+    
 
     return (
         <>
@@ -24,6 +40,9 @@ function Details(props) {
                 <button>Back to List</button>
             </Link>
             <p>{ JSON.stringify( movieDescription ) }</p>
+            <h3>Genres</h3>
+            <p>{ JSON.stringify( findGenres() ) }</p>
+
         </>
     )
 }

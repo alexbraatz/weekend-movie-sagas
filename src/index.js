@@ -58,7 +58,6 @@ const movies = (state = [], action) => {
 const genres = (state = [], action) => {
     switch (action.type) {
         case 'SET_GENRES':
-            console.log( 'in SET_GENRES action payload:', action.payload )
             return action.payload;
         default:
             return state;
