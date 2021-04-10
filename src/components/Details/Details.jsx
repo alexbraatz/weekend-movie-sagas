@@ -39,9 +39,9 @@ function Details(props) {
             <p>{ JSON.stringify( movieDescription ) }</p>
             <h3>Genres</h3>
             <ul>
-                { findGenres().map( genre =>{
+                { findGenres().map( ( genre, i ) =>{
                     return( 
-                        <li>{genre}</li>
+                        <li key={ i }>{genre}</li>
                     )
                 })}
             </ul>
