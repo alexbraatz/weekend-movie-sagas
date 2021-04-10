@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
   JOIN "movies" ON "movies".id = "movies_genres".movie_id
   JOIN "genres" ON "genres".id = "movies_genres".genre_id;`
   pool.query( sqlQuery ).then( result => {
-    console.log( 'in G E N R E GET route:', result.rows )
     res.send( result.rows );
   }).catch( error =>{
     console.log( 'genre router GET error', error );

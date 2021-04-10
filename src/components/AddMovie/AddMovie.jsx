@@ -1,8 +1,12 @@
 import MultiSelect from "react-multi-select-component";
 import React, { useState } from "react";
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import axios from "axios";
 
 function AddMovie() {
+
+    const dispatch = useDispatch();
 
     const genreOptions = [
         { label: 'Adventure', value: 'Adventure'}, 
@@ -24,10 +28,33 @@ function AddMovie() {
     const [ newMoviePosterUrl, setNewMoviePosterUrl ] = useState( '' );
     const [ newMovieDescription, setNewMovieDescription ] = useState( '' );
     const [ selectedGenres, setSelectedGenres ] = useState( [] );
+    const [ genreId, setGenreId ] = useState( 0 );
 
-    console.log( newMovieTitle );
-    console.log( newMoviePosterUrl );
-    console.log( newMovieDescription );
+    const saveMovie = () => {
+
+        selectedGenres.map( newGenre => {
+            console.log( 'in selectedGenres map', newGenre )
+            if( newGenre.label === 'Adventure'){
+                setGenreId( prevState => prevState + 1 );
+            }
+        })
+
+        let newMovie = {
+            title: newMovieTitle,
+            poster: newMoviePosterUrl,
+            description: newMovieDescription,
+            genre_id: genreId
+        }
+
+        dispatch( { type: 'SAVE_MOVIE', payload: newMovie } );
+
+        axios.post( '/api/movie', newMovie ).then( (response )=>{
+            console.log( 'back from addMovie Post', reponse );
+        }).catch( error => {
+            console.log( 'error in our Post', error )
+        })
+
+    }
 
     return (
         <>
@@ -40,14 +67,15 @@ function AddMovie() {
             <input type='text' onChange={ ( event ) => setNewMovieDescription( event.target.value )}></input>
             <div>
                 <pre>{JSON.stringify(selectedGenres)}</pre>
+                <h4>Add Genres:</h4>
                 <MultiSelect
                 options={ genreOptions }
                 value={ selectedGenres }
                 onChange={ setSelectedGenres } 
-                labelledBy="Add Movie Genres"
+                labelledBy="Add-Movie-Genres"
                 />
             </div><br />
-            <button>Save Movie</button>
+            <button onClick={ (event) => saveMovie() }>Save Movie</button>
             <Link to={'/'}>
                 <button>Cancel</button>
             </Link>

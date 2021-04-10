@@ -30,7 +30,7 @@ TODO's
     [ ] a dropdown ( for the genres )
 
 [ ] The 'Add Movie' page should have the buttons
-    [ ] 'Cancel' button which should bring the user to the 'Home/List' page
+    [ x ] 'Cancel' button which should bring the user to the 'Home/List' page
     [ ] 'Save' button which should update the title and description in the database
         and bring the user to the Home/List page ( which now has the new movie )
 

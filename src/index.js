@@ -15,6 +15,18 @@ import axios from 'axios';
 function* rootSaga() {
     yield takeEvery('FETCH_MOVIES', fetchAllMovies);
     yield takeEvery('FETCH_GENRES', fetchAllGenres);
+    yield takeEvery('SAVE_MOVIE', saveNewMovie );
+}
+
+function* saveNewMovie() {
+    // try {
+    //     const response = yield axios.get( '/api/movie' );
+    //     console.log( 'first post yield successful')
+    //     yield put( { type: 'SAVE_MOVIE', payload:  })
+    //     console.log( 'in generator saveNewMovie reponse', newMovies.data );
+    // } catch {
+    //     console.log( 'post error in saveNewMovie generator' );
+    // }
 }
 
 function* fetchAllMovies() {
