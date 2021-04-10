@@ -20,17 +20,24 @@ function AddMovie() {
         { label: 'Superhero', value: 'Superhero' }
     ];
 
+    const [ newMovieTitle, setNewMovieTitle ] = useState( '');
+    const [ newMoviePosterUrl, setNewMoviePosterUrl ] = useState( '' );
+    const [ newMovieDescription, setNewMovieDescription ] = useState( '' );
     const [ selectedGenres, setSelectedGenres ] = useState( [] );
+
+    console.log( newMovieTitle );
+    console.log( newMoviePosterUrl );
+    console.log( newMovieDescription );
 
     return (
         <>
             <h2>Add a Movie:</h2>
             <label>Movie Title </label>
-            <input type='text'></input><br />
+            <input type='text' onChange={ ( event ) => setNewMovieTitle( event.target.value )}></input><br />
             <label>Movie Poster URL </label>
-            <input type='text'></input><br />
+            <input type='text' onChange={ ( event ) => setNewMoviePosterUrl( event.target.value )}></input><br />
             <label>Movie Description </label>
-            <input type='text'></input>
+            <input type='text' onChange={ ( event ) => setNewMovieDescription( event.target.value )}></input>
             <div>
                 <pre>{JSON.stringify(selectedGenres)}</pre>
                 <MultiSelect
