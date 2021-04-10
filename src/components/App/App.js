@@ -32,6 +32,8 @@ function App() {
         {/* Add Movie page */}
         <Route path="/addMovie" exact component={AddMovie} />
 
+        <Route path="/genres"></Route>
+
       </Router>
     </div>
   );

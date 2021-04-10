@@ -1,10 +1,21 @@
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import axios from 'axios';
 
 function Details(props) {
     
     let movieDescription = props.location.movie.description
-
     let movieTitle = props.location.movie.title
+
+    const dispatch = useDispatch();
+    const genres = useSelector( store => store.genres );
+
+    useEffect(()=>{
+        dispatch({type: 'FETCH_GENRES' } );
+    }, []);
+
+    console.log( 'in details, genres', genres );
 
     return (
         <>
