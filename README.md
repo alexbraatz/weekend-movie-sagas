@@ -13,7 +13,7 @@ TODO's
 
 # Details Page 
 
-[ ] Show all details including ALL genres for the selected movie
+[ x ] Show all details including ALL genres for the selected movie
     ( You will need to store this data in redux ! )
     ( Hint : You can make a GET request for a specific movie. Remember req.params and :id? )
 
