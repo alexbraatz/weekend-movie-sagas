@@ -7,7 +7,6 @@ import Details from '../Details/Details';
 import AddMovie from '../AddMovie/AddMovie';
 
 function App() {
-  const movies = useSelector(store => store.movies);
 
   return (
     <div className="App">
