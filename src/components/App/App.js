@@ -19,13 +19,9 @@ function App() {
           <MovieList />
         </Route>
         
-        {/* Details page */}
         <Route path="/details" exact component={ Details } />
 
-        {/* Add Movie page */}
         <Route path="/addMovie" exact component={AddMovie} />
-
-        <Route path="/genres"></Route>
 
       </Router>
     </div>

@@ -24,7 +24,7 @@ function AddMovie() {
 
     return (
         <>
-            <h2>Add a Movie!</h2>
+            <h2>Add a Movie:</h2>
             <label>Movie Title </label>
             <input type='text'></input><br />
             <label>Movie Poster URL </label>
