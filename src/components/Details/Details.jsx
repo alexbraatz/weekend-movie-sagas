@@ -7,7 +7,6 @@ function Details(props) {
     
     let movieDescription = props.location.movie.description
     let movieTitle = props.location.movie.title
-    
 
     const dispatch = useDispatch();
     const genres = useSelector( store => store.genres );
@@ -31,8 +30,6 @@ function Details(props) {
         return movieGenres
     }
 
-    
-
     return (
         <>
             <h2>{ JSON.stringify( movieTitle ) } Details:</h2>
@@ -41,7 +38,13 @@ function Details(props) {
             </Link>
             <p>{ JSON.stringify( movieDescription ) }</p>
             <h3>Genres</h3>
-            <p>{ JSON.stringify( findGenres() ) }</p>
+            <ul>
+                { findGenres().map( genre =>{
+                    return( 
+                        <li>{genre}</li>
+                    )
+                })}
+            </ul>
 
         </>
     )
