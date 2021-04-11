@@ -108,7 +108,6 @@ function AddMovie() {
             <label>Movie Description </label>
             <input type='text' onChange={ ( event ) => setNewMovieDescription( event.target.value )}></input>
             <div>
-                <pre>{JSON.stringify(selectedGenres)}</pre>
                 <h4>Add Genres:</h4>
                 <MultiSelect
                 options={ genreOptions }
