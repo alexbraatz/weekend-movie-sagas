@@ -1,12 +1,13 @@
 import MultiSelect from "react-multi-select-component";
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import axios from "axios";
 
 function AddMovie() {
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     const genreOptions = [
         { label: 'Adventure', value: 'Adventure'}, 
@@ -90,6 +91,7 @@ function AddMovie() {
 
         axios.post( '/api/movie', newMovie ).then( (response )=>{
             console.log( 'back from addMovie Post', response );
+            history.push('/')
         }).catch( error => {
             console.log( 'error in our Post', error )
         })
